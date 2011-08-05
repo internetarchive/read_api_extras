@@ -11,7 +11,7 @@ to the "ol_readapi_book" elements found earlier.
 
 A demonstration use of this script is available here:
 
-https://raw.github.com/internetarchive/read_api_extras/master/readapi_demo.html
+http://internetarchive.github.com/read_api_extras/readapi_demo.html
 */
 
 var ol_readapi_automator =
