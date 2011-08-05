@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <title>Read API Demo</title>
+
+  <!-- The 'readapi_automator.js' script requires jQuery -->
+  <script src="http://www.archive.org/includes/jquery-1.6.1.min.js"></script>
+</head>
+<body>
+  <h2>Read API demo</h2>
+  <p>This is a simple demo of the Open Library
+  <a href="http://openlibrary.org/dev/docs/api/read">Read API</a>.  It
+  demonstrates how use a helper script to add links to readable Open
+  Library books.</p>
+
+  <h2>Sample books</h2>
+  <p>Below is a table of books and library identifiers.  In the third
+  column are (empty) html &lt;div&gt; elements, like this:
+  <p><code>&lt;div class="ol_readapi_book"
+  isbn="0914845462"&gt;</code>
+  <table cellspacing="10" width="100%">
+    <tr>
+      <th align="left" width="40%">Title</th>
+      <th align="left" width="20%">Identifiers</th>
+      <th align="left" width="40%">Open Library Result</th>
+    </tr>
+    <tr>
+      <td>The Peter Norton Programmer's guide to the IBM PC</td>
+      <td>isbn:0914845462</td>
+      <td><div class="ol_readapi_book" isbn="0914845462"></div></td>
+    </tr>
+    <tr>
+      <td>Anecdotes of Destiny</td>
+      <td>isbn:0394711777</td>
+      <td><div class="ol_readapi_book" isbn="0394711777"></div></td>
+    </tr>
+    <tr>
+      <td>Last Tales</td>
+      <td>lccn:75009828 isbn:039471752X</td>
+      <td><div class="ol_readapi_book"
+               isbn="039471752X" lccn="75009828"></div></td>
+    </tr>
+    <tr>
+      <td>For Victory in Peaceful Competition with Capitalism</td>
+      <td>lccn:60006004</td>
+      <td><div class="ol_readapi_book" 
+               isbn="039471752X" lccn="75009828"></div>
+    </tr>
+    <tr>
+      <td>Little Wars</td>
+      <td>olid:OL7142194M</td>
+      <td><div class="ol_readapi_book" olid="OL7142194M"></div></td>
+    </tr>
+    <tr>
+      <td>The Montessori Method</td>
+      <td>oclc:1181252</td>
+      <td><div class="ol_readapi_book" oclc="1181252"></div></td>
+    <tr>
+      <td>The Log of a Cowboy</td>
+      <td>iaid:logofcowboynarra00adamuoft</td>
+      <td><div class="ol_readapi_book"
+               iaid="logofcowboynarra00adamuoft"></div></td>
+    </tr>
+  </table>
+
+  <h2>Calling the script</h2>
+  <p>When the helper script loads, it searches through the document
+  for any "ol_readapi_book" &lt;div&gt; books, collects identifiers
+  from them, and makes a call to the Read API to check Open Library
+  for readable links.  When this returns, it creates read links for
+  any books it has found.</p>
+
+  <script>
+    // Script config vars go here, if any
+  </script>
+  <script src="readapi_automator.js"></script>
+
+</body>
+</html>
