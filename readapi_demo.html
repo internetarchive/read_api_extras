@@ -8,7 +8,7 @@
 <body>
   <h2>Read API demo</h2>
   <p>This is a simple demo of the Open Library
-  <a href="http://openlibrary.org/dev/docs/api/read">Read API</a>.
+  <a href="http://openlibrary.org/dev/docs/api/read">Read API</a>.  See the <a href="https://github.com/internetarchive/read_api_extras/blob/gh-pages/readapi_demo.html">page code</a> for how it works.
 
 It demonstrates how use a <a href="https://github.com/internetarchive/read_api_extras/blob/gh-pages/readapi_automator.js">helper script</a> to add links to readable Open Library books.</p>
 
@@ -26,17 +26,20 @@ It demonstrates how use a <a href="https://github.com/internetarchive/read_api_e
     <tr>
       <td>The Log of a Cowboy - Andy Adams, 1903</td>
       <td>lccn:03012817 oclc:03544699</td>
+      <!-- Here's the div that the Read API helper replaces -->
       <td><div class="ol_readapi_book"
                lccn="03012817" oclc="03544699"></div></td>
     </tr>
     <tr>
       <td>The Montessori Method - Maria Montessori, 1912</td>
       <td>oclc:1181252</td>
+      <!-- And here... -->
       <td><div class="ol_readapi_book" oclc="1181252"></div></td>
     </tr>
     <tr>
       <td>Little Wars - H. G. Wells, 1913</td>
       <td>olid:OL7142194M</td>
+      <!-- And so on -->
       <td><div class="ol_readapi_book" olid="OL7142194M"></div></td>
     </tr>
     <tr>
@@ -128,6 +131,8 @@ It demonstrates how use a <a href="https://github.com/internetarchive/read_api_e
   <script>
     // Script config vars go here, if any
   </script>
+  
+  <!-- And here's the call to the Read Api helper script.  That's it! -->
   <script src="readapi_automator.js"></script>
 
 </body>
