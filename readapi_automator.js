@@ -63,15 +63,16 @@ function make_read_button(bookdata) {
         "http://openlibrary.org/images/button-checked-out-open-library.png",
         // XXX remove!
         'restricted':
-        "http://openlibrary.org/images/button-checked-out-open-library.png",
+        "http://openlibrary.org/images/button-checked-out-open-library.png"
     }
     if (bookdata.items.length == 0) {
         return 'No items available';
     }
     first = bookdata.items[0];
-    return '<a href="' + first.itemURL + '">' +
+    result = '<a href="' + first.itemURL + '">' +
       '<img class="' + ol_button_classname +
-      '" = src="' + buttons[first.status] + '"/></a>';
+      '" src="' + buttons[first.status] + '"/></a>';
+    return result
 }
 
 // Default function for decorating document elements with read API data
@@ -91,16 +92,16 @@ function do_query(q, decorate_el_fn) {
     if (!decorate_el_fn) {
         decorate_el_fn = default_decorate_el_fn;
     }
-    var starttime = Date.now();
+    var starttime = (new Date()).getTime();
 
     // Call a function on each <div class="ol_readapi_book"> element
     // with the target element and the data found for that element.
     // Use decorate_el_fn if supplied, falling back to
     // default_decorate_el_fn, above.
     function query_callback(data, textStatus, jqXHR) {
-        var endtime = Date.now();
+        var endtime = (new Date()).getTime();
         var duration = (endtime - starttime) / 1000;
-        console.log('took ' + duration + ' seconds');
+        // console.log('took ' + duration + ' seconds');
 
         $('.' + magic_classname).each(function(i, el) {
                 var bookid = $(el).attr(magic_bookid);
@@ -112,11 +113,11 @@ function do_query(q, decorate_el_fn) {
             });
     }
 
-    console.log('calling ' + q);
+    // console.log('calling ' + q);
     $.ajax({ url: q,
                 data: { 'show_all_items': 'true' },
                 dataType: 'jsonp',
-                success: query_callback,
+                success: query_callback
                 });
 }
 
@@ -127,7 +128,7 @@ do_query(q);
 result = {
     do_query: do_query,
     create_query: create_query,
-    make_read_button: make_read_button,
+    make_read_button: make_read_button
 };
 
 return result;
