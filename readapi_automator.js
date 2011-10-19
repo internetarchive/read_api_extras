@@ -50,7 +50,7 @@ function create_query() {
     }
 
     $('.' + magic_classname).each(add_el);
-    return q
+    return q;
 }
 
 function make_read_button(bookdata) {
@@ -60,19 +60,19 @@ function make_read_button(bookdata) {
         'lendable':
         "http://openlibrary.org/images/button-borrow-open-library.png",
         'checked out':
-        "http://openlibrary.org/images/button-checked-out-open-library.png",
-        // XXX remove!
-        'restricted':
         "http://openlibrary.org/images/button-checked-out-open-library.png"
-    }
+    };
     if (bookdata.items.length == 0) {
-        return 'No items available';
+        return false;
     }
     first = bookdata.items[0];
+    if (!(first.status in buttons)) {
+        return false;
+    }
     result = '<a href="' + first.itemURL + '">' +
       '<img class="' + ol_button_classname +
       '" src="' + buttons[first.status] + '"/></a>';
-    return result
+    return result;
 }
 
 // Default function for decorating document elements with read API data
@@ -84,8 +84,9 @@ function default_decorate_el_fn(el, bookdata) {
     } else {
         decoration = make_read_button(bookdata);
     }
-    el.innerHTML += decoration
-;
+    if (decoration) {
+        el.innerHTML += decoration;
+    }
 }
 
 function do_query(q, decorate_el_fn) {
